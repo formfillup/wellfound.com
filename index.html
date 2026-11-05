@@ -1,467 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Careers | Wellfound</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        body{
-            font-family:'Inter',sans-serif;
-            background:#f8fafc;
-            overflow-x:hidden;
-        }
-
-        html{
-            scroll-behavior:smooth;
-        }
-
-        .hero-section{
-            min-height:100vh;
-            background:
-            linear-gradient(rgba(12,18,38,.82),rgba(12,18,38,.82)),
-            url('bg3.jpg');
-            background-size:cover;
-            background-position:center;
-            position:relative;
-            overflow:hidden;
-        }
-
-        /* Base glass nav */
-        .nav-glass {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.12);
-            transition: all 0.4s ease;
-        }
-
-        /* Scrolled state navbar */
-        .nav-scrolled {
-            background: rgba(255, 255, 255, 0.92) !important;
-            backdrop-filter: blur(16px) !important;
-            border-color: rgba(0, 0, 0, 0.08) !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-scrolled .nav-link {
-            color: #1f2937 !important; /* dark text when scrolled */
-        }
-
-        .nav-scrolled .logo-text {
-            color: #000000 !important; /* black logo text when scrolled */
-        }
-
-        .nav-scrolled .nav-logo-img {
-            filter: brightness(0); /* converts white/colored SVG or PNG logo to solid black */
-        }
-
-        .glass{
-            background:rgba(255,255,255,0.08);
-            backdrop-filter:blur(14px);
-            border:1px solid rgba(255,255,255,0.12);
-        }
-
-        .card-hover{
-            transition:all .35s ease;
-        }
-
-        .card-hover:hover{
-            transform:translateY(-10px);
-            box-shadow:0 25px 60px rgba(0,0,0,0.08);
-        }
-
-        .glow{
-            box-shadow:0 10px 40px rgba(255,114,58,.35);
-        }
-
-        .gradient-text{
-            background:linear-gradient(to right,#FF723A,#ff9d73);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
-
-        .blur-circle{
-            position:absolute;
-            width:350px;
-            height:350px;
-            border-radius:50%;
-            filter:blur(120px);
-            opacity:.2;
-            z-index:0;
-        }
-
-        .circle1{
-            background:#e5680f;
-            top:-100px;
-            right:-80px;
-        }
-
-        .circle2{
-            background:#6C7BFF;
-            bottom:-120px;
-            left:-100px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers | Wellfound</title>
+<meta name="description" content="Open roles at Wellfound. Remote-first, flexible hours, apply in two minutes.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] },
+  colors: { ink:'#15171C', mist:'#F5F6F7', line:'#E3E5E8', mute:'#5C626C', accent:'#C8431D', accenthi:'#AD3716' }
+}}};
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  section[id], footer[id] { scroll-margin-top: 72px; }
+  :focus-visible { outline: 2px solid #C8431D; outline-offset: 2px; }
+  dialog { padding: 0; border: 0; color: #15171C; background: #fff; width: min(100% - 2rem, 560px); max-height: 92vh; border-radius: 12px; overflow: auto; }
+  dialog::backdrop { background: rgba(21,23,28,.55); }
+  dialog[open] { animation: rise .18s ease-out; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 639px) {
+    dialog { margin: auto 0 0 0; width: 100%; max-width: 100%; border-radius: 16px 16px 0 0; }
+  }
+  #drawerPanel { transition: transform .2s ease-out; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    dialog[open] { animation: none; }
+    #drawerPanel { transition: none; }
+  }
+</style>
 </head>
+<body class="bg-white font-sans text-ink antialiased">
+<a href="#roles" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2">Skip to open roles</a>
 
-<body class="text-gray-900">
+<!-- HEADER (dark so the white logo stays legible) -->
+<header class="sticky top-0 z-40 border-b border-white/10 bg-ink text-white">
+  <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5" aria-label="Main">
+    <a href="#top" class="flex items-center" aria-label="Wellfound home">
+      <img src="shikho.png" alt="Wellfound" class="h-9 w-auto" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-lg font-extrabold tracking-tight',textContent:'Wellfound'}))">
+    </a>
+    <div class="hidden items-center gap-8 text-sm font-medium md:flex">
+      <a href="#roles" class="text-white/80 hover:text-white">Open roles</a>
+      <a href="#culture" class="text-white/80 hover:text-white">How we work</a>
+      <a href="#perks" class="text-white/80 hover:text-white">Perks</a>
+      <a href="#office" class="text-white/80 hover:text-white">Office</a>
+      <a href="#roles" class="rounded-md bg-accent px-4 py-2.5 font-semibold text-white hover:bg-accenthi">Apply now</a>
+    </div>
+    <button id="menuBtn" class="-mr-2 grid h-11 w-11 place-items-center rounded-md hover:bg-white/10 md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+</header>
 
-    <!-- NAVBAR -->
-    <header class="fixed top-0 left-0 w-full z-50">
-        <nav class="max-w-7xl mx-auto px-5 md:px-8 py-5">
+<!-- MOBILE DRAWER -->
+<div id="drawer" class="fixed inset-0 z-50 hidden md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+  <div id="drawerOverlay" class="absolute inset-0 bg-ink/60"></div>
+  <div id="drawerPanel" class="absolute right-0 top-0 flex h-full w-[82%] max-w-xs translate-x-full flex-col bg-ink text-white">
+    <div class="flex h-16 items-center justify-end px-5">
+      <button id="drawerClose" class="-mr-2 grid h-11 w-11 place-items-center rounded-md hover:bg-white/10" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="flex flex-col px-5" aria-label="Mobile">
+      <a href="#roles" class="drawer-link border-t border-white/10 py-4 text-lg font-semibold">Open roles</a>
+      <a href="#culture" class="drawer-link border-t border-white/10 py-4 text-lg font-semibold">How we work</a>
+      <a href="#perks" class="drawer-link border-t border-white/10 py-4 text-lg font-semibold">Perks</a>
+      <a href="#office" class="drawer-link border-y border-white/10 py-4 text-lg font-semibold">Office</a>
+      <a href="#roles" class="drawer-link mt-6 rounded-md bg-accent py-3.5 text-center font-semibold hover:bg-accenthi">Apply now</a>
+    </nav>
+  </div>
+</div>
 
-            <div id="navbarContainer" class="nav-glass rounded-2xl px-5 md:px-8 py-4 flex items-center justify-between">
+<main id="top">
+<!-- HERO -->
+<section class="border-b border-line">
+  <div class="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-24">
+    <div class="lg:col-span-7">
+      <h1 class="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.5rem]">Build how the next generation learns, and grow while you do it.</h1>
+      <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-mute">Remote-first roles, hours you choose, and a team that ships. Browse what’s open and apply in about two minutes.</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href="#roles" class="inline-flex h-12 items-center justify-center rounded-md bg-accent px-7 font-semibold text-white hover:bg-accenthi">View open roles</a>
+        <a href="#culture" class="inline-flex h-12 items-center justify-center rounded-md border border-line px-7 font-semibold hover:bg-mist">See how we work</a>
+      </div>
+      <ul class="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-6 text-sm font-medium">
+        <li>Remote-first roles</li>
+        <li>Part-time and full-time shifts</li>
+        <li>Equity on select roles</li>
+        <li>Headquarters in Dhaka</li>
+      </ul>
+    </div>
 
-                <!-- LOGO -->
-                <div class="flex items-center gap-3">
-                    <img src="shikho.png"
-                    class="nav-logo-img h-12 md:h-16 w-auto transition-all duration-300"
-                    alt="Logo"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-
-                    <h1 style="display:none;" class="logo-text text-2xl md:text-3xl font-black text-white tracking-tight transition-colors duration-300">
-                        WELLFOUND
-                    </h1>
-                </div>
-
-                <!-- DESKTOP MENU -->
-                <div class="hidden md:flex items-center gap-10 text-white font-medium">
-
-                    <a href="#jobs" class="nav-link text-white hover:text-orange-400 transition">
-                        Careers
-                    </a>
-
-                    <a href="#location" class="nav-link text-white hover:text-orange-400 transition">
-                        Office
-                    </a>
-
-                    <a href="#jobs"
-                    class="bg-[#FF723A] hover:bg-orange-600 text-white transition px-6 py-3 rounded-xl font-semibold glow">
-                        Apply Now
-                    </a>
-
-                </div>
-
-                <!-- MOBILE BUTTON -->
-                <a href="#jobs"
-                class="md:hidden bg-[#FF723A] text-white px-4 py-2 rounded-xl text-sm font-semibold">
-                    Apply
-                </a>
-
-            </div>
-
-        </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero-section flex items-center justify-center px-6 text-white">
-
-        <div class="blur-circle circle1"></div>
-        <div class="blur-circle circle2"></div>
-
-        <div class="max-w-5xl mx-auto text-center relative z-10 pt-24">
-
-            <!-- TAG -->
-            <div class="inline-flex items-center gap-2 glass px-5 py-2 rounded-full text-sm md:text-base font-medium mb-8">
-                <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-                Hiring Talented People Worldwide
-            </div>
-
-            <!-- TITLE -->
-            <h1 class="text-5xl sm:text-6xl md:text-8xl font-black leading-tight tracking-tight mb-8">
-                Build the Future of
-                <span class="gradient-text">
-                    Learning
-                </span>
-            </h1>
-
-            <!-- SUBTITLE -->
-            <p class="text-lg md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
-                Join a fast-growing team focused on innovation, creativity, and creating opportunities for the next generation.
-            </p>
-
-            <!-- BUTTONS -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-
-                <a href="#jobs"
-                class="w-full sm:w-auto bg-[#FF723A] hover:bg-orange-600 px-10 py-4 rounded-2xl text-lg font-bold transition duration-300 glow">
-                    View Open Roles
-                </a>
-
-                <a href="#location"
-                class="w-full sm:w-auto glass hover:bg-white/10 px-10 py-4 rounded-2xl text-lg font-semibold transition duration-300">
-                    Office Location
-                </a>
-
-            </div>
-
+    <aside class="lg:col-span-5" aria-label="Hiring snapshot">
+      <div class="rounded-lg border border-line">
+        <div class="border-b border-line px-5 py-4">
+          <p class="font-semibold">Hiring right now</p>
+          <p class="text-sm text-mute">Updates as roles open and close.</p>
         </div>
-
-    </section>
-
-    <!-- JOBS -->
-    <section id="jobs" class="py-24 px-5 md:px-8">
-
-        <div class="max-w-7xl mx-auto">
-
-            <!-- SECTION TITLE -->
-            <div class="text-center mb-16">
-
-                <span class="text-[#FF723A] font-bold uppercase tracking-[3px] text-sm">
-                    Careers
-                </span>
-
-                <h2 class="text-4xl md:text-6xl font-black mt-4 mb-5 text-[#2B3252]">
-                    Current Opportunities
-                </h2>
-
-                <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-                    Explore exciting opportunities and become part of a modern team shaping the future.
-                </p>
-
-            </div>
-
-            <!-- JOB CARDS -->
-            <div class="grid lg:grid-cols-2 gap-8">
-
-                <!-- CARD (CLOSED ROLE) -->
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-100 opacity-75 relative">
-
-                    <div class="flex items-center justify-between mb-8">
-
-                        <span class="bg-red-100 text-red-600 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                            Closed
-                        </span>
-
-                        <span class="text-gray-400 font-medium text-sm">
-                            Hybrid
-                        </span>
-
-                    </div>
-
-                    <h3 class="text-3xl font-black text-[#2B3252] mb-5">
-                        Jr. Executive
-                    </h3>
-
-                    <p class="text-gray-500 leading-relaxed mb-8 text-[15px]">
-                        This role is currently closed and no longer accepting applications. Thank you for your interest.
-                    </p>
-
-                    <div class="flex items-center gap-4 mb-10">
-
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center text-2xl">
-                            📍
-                        </div>
-
-                        <div>
-                            <p class="font-bold text-[#2B3252]">
-                                Dhaka, Bangladesh
-                            </p>
-
-                            <p class="text-gray-500 text-sm">
-                                Hybrid Workplace
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <button disabled
-                    class="block w-full text-center bg-gray-200 text-gray-400 py-4 rounded-2xl font-bold cursor-not-allowed">
-                        Position Closed
-                    </button>
-
-                </div>
-
-                <!-- CARD -->
-                <div class="bg-white rounded-[32px] p-8 md:p-10 border border-gray-100 card-hover">
-
-                    <div class="flex items-center justify-between mb-8">
-
-                        <span class="bg-green-100 text-green-600 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                            Remote
-                        </span>
-
-                        <span class="text-gray-400 font-medium text-sm">
-                            Anywhere
-                        </span>
-
-                    </div>
-
-                    <h3 class="text-3xl font-black text-[#2B3252] mb-5">
-                        Customer Support Agent
-                    </h3>
-
-                    <p class="text-gray-500 leading-relaxed mb-8 text-[15px]">
-                        Ensure users have a seamless experience by solving problems with empathy, professionalism, and speed.
-                    </p>
-
-                    <div class="flex items-center gap-4 mb-10">
-
-                        <div class="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center text-2xl">
-                            🏠
-                        </div>
-
-                        <div>
-                            <p class="font-bold text-[#2B3252]">
-                                Remote Work
-                            </p>
-
-                            <p class="text-gray-500 text-sm">
-                                Flexible Schedule
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <a href="form1.html"
-                    class="block text-center bg-[#FF723A] hover:bg-orange-600 text-white py-4 rounded-2xl font-bold transition duration-300 glow">
-                        Apply Now
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- LOCATION -->
-    <section id="location" class="pb-24 px-5 md:px-8">
-
-        <div class="max-w-6xl mx-auto">
-
-            <div class="bg-white rounded-[36px] overflow-hidden shadow-sm border border-gray-100 grid lg:grid-cols-2">
-
-                <!-- LEFT -->
-                <div class="p-10 md:p-14 flex flex-col justify-center">
-
-                    <span class="text-[#FF723A] font-bold uppercase tracking-[3px] text-sm mb-4">
-                        Headquarters
-                    </span>
-
-                    <h2 class="text-4xl md:text-5xl font-black text-[#2B3252] leading-tight mb-6">
-                        Our Office Location
-                    </h2>
-
-                    <p class="text-gray-500 text-lg leading-relaxed mb-8">
-                        Visit our headquarters located in one of Dhaka’s prime business districts.
-                    </p>
-
-                    <div class="flex items-start gap-5">
-
-                        <div class="min-w-[70px] h-[70px] rounded-3xl bg-orange-100 flex items-center justify-center text-3xl">
-                            📍
-                        </div>
-
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#2B3252] mb-3">
-                                Dhaka Headquarters
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                Rangs Paramount, Level 11 Block-K,
-                                Plot-11 Rd No 17,
-                                Dhaka 1213
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- RIGHT -->
-                <div class="bg-[#2B3252] p-10 md:p-14 flex items-center justify-center">
-
-                    <div class="glass rounded-[32px] p-10 text-center max-w-md w-full">
-
-                        <div class="text-6xl mb-6">
-                            🚀
-                        </div>
-
-                        <h3 class="text-3xl font-black text-white mb-4">
-                            Join Our Team
-                        </h3>
-
-                        <p class="text-gray-300 leading-relaxed mb-8">
-                            Build your future with a fast-growing and innovative company.
-                        </p>
-
-                        <a href="#jobs"
-                        class="block bg-[#FF723A] hover:bg-orange-600 text-white py-4 rounded-2xl font-bold transition duration-300">
-                            Explore Careers
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#111827] text-white py-14 px-5 md:px-8">
-
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-
-            <div class="text-center md:text-left">
-
-                <h2 class="text-3xl font-black mb-4">
-                    WELLFOUND
-                </h2>
-
-                <p class="text-gray-400 max-w-sm leading-relaxed">
-                    Empowering the next generation through innovation, opportunity, and learning.
-                </p>
-
-            </div>
-
-            <div class="text-center md:text-right">
-
-                <p class="text-gray-400 text-sm mb-2">
-                    Contact Us
-                </p>
-
-                <a href="mailto:wellfound.career@gmail.com"
-                class="text-2xl font-bold hover:text-[#FF723A] transition">
-                    wellfound.career@gmail.com
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            © 2026 Wellfound. All Rights Reserved.
-        </div>
-
-    </footer>
-
-    <!-- SCROLL SCRIPT FOR NAVBAR & LOGO STATE -->
-    <script>
-        const navbar = document.getElementById('navbarContainer');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        });
-    </script>
-
+        <dl class="divide-y divide-line text-sm">
+          <div class="flex items-baseline justify-between px-5 py-4"><dt class="text-mute">Open roles</dt><dd id="statOpen" class="text-2xl font-bold">–</dd></div>
+          <div class="flex items-baseline justify-between px-5 py-4"><dt class="text-mute">Fully remote</dt><dd id="statRemote" class="text-2xl font-bold">–</dd></div>
+          <div class="flex items-baseline justify-between px-5 py-4"><dt class="text-mute">Teams hiring</dt><dd id="statTeams" class="text-2xl font-bold">–</dd></div>
+          <div class="flex items-baseline justify-between px-5 py-4"><dt class="text-mute">Recently closed</dt><dd id="statClosed" class="text-2xl font-bold text-mute">–</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- JOB BOARD -->
+<section id="roles" class="mx-auto max-w-6xl px-5 py-14 sm:py-20" aria-labelledby="rolesTitle">
+  <div class="flex flex-wrap items-end justify-between gap-3">
+    <h2 id="rolesTitle" class="text-3xl font-extrabold tracking-tight sm:text-4xl">Open roles</h2>
+    <p id="resultCount" class="text-sm text-mute" aria-live="polite"></p>
+  </div>
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+    <div>
+      <div class="flex gap-3 lg:block">
+        <label class="sr-only" for="q">Search roles</label>
+        <input id="q" type="search" placeholder="Search roles" class="h-12 w-full flex-1 rounded-md border border-line px-4 text-base placeholder:text-mute focus-visible:outline-accent">
+        <button id="filterBtn" type="button" class="h-12 shrink-0 rounded-md border border-line px-4 font-semibold hover:bg-mist lg:hidden" aria-expanded="false" aria-controls="filterPanel">Filters<span id="filterBadge" class="ml-1 text-accent"></span></button>
+      </div>
+
+      <form id="filterPanel" class="mt-5 hidden space-y-6 lg:mt-6 lg:block" onsubmit="return false">
+        <fieldset>
+          <legend class="mb-1 text-sm font-bold">Department</legend>
+          <div id="deptFacet"></div>
+        </fieldset>
+        <fieldset>
+          <legend class="mb-1 text-sm font-bold">Location</legend>
+          <div id="locFacet"></div>
+        </fieldset>
+        <fieldset>
+          <legend class="mb-1 text-sm font-bold">Compensation</legend>
+          <label class="flex min-h-[44px] cursor-pointer items-center gap-3 text-sm"><input id="equity" type="checkbox" class="h-4 w-4 accent-[#C8431D]"> Includes equity</label>
+          <label class="flex min-h-[44px] cursor-pointer items-center gap-3 text-sm"><input id="closed" type="checkbox" class="h-4 w-4 accent-[#C8431D]" checked> Show closed roles</label>
+        </fieldset>
+        <button id="reset" type="button" class="min-h-[44px] text-sm font-semibold text-accent underline underline-offset-4">Clear filters</button>
+      </form>
+    </div>
+
+    <div>
+      <ul id="roleList" class="divide-y divide-line border-y border-line"></ul>
+      <div id="empty" class="hidden rounded-lg border border-dashed border-line px-6 py-12 text-center">
+        <p class="font-semibold">No roles match these filters.</p>
+        <p class="mt-1 text-sm text-mute">Try a different department or location.</p>
+        <button id="emptyReset" type="button" class="mt-5 h-11 rounded-md border border-line px-5 text-sm font-semibold hover:bg-mist">Clear filters</button>
+      </div>
+      <p class="mt-6 text-sm text-mute">Don’t see your role? Email <a class="font-semibold text-ink underline underline-offset-4" href="mailto:wellfound.career@gmail.com">wellfound.career@gmail.com</a> and tell us what you’d build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE: photo | principles -->
+<section id="culture" class="border-y border-line bg-mist" aria-labelledby="cultureTitle">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16">
+    <div class="aspect-[4/3] overflow-hidden rounded-lg border border-line bg-white">
+      <img src="bg3.jpg" alt="Students using phones and a laptop" class="h-full w-full object-cover object-[100%_50%]" loading="lazy" onerror="this.parentElement.style.display='none'">
+    </div>
+    <div>
+      <h2 id="cultureTitle" class="text-3xl font-extrabold tracking-tight sm:text-4xl">How we work</h2>
+      <dl class="mt-8 divide-y divide-line border-y border-line">
+        <div class="py-5"><dt class="font-bold">Ship, then improve</dt><dd class="mt-1 max-w-[56ch] text-mute">Small teams own their work end to end. You see what you built reach students.</dd></div>
+        <div class="py-5"><dt class="font-bold">Clear path forward</dt><dd class="mt-1 max-w-[56ch] text-mute">Every listing states the level, pay and what the next step looks like, before you apply.</dd></div>
+        <div class="py-5"><dt class="font-bold">Work where you do your best</dt><dd class="mt-1 max-w-[56ch] text-mute">Most roles are remote. Hybrid roles meet at our Dhaka office.</dd></div>
+        <div class="py-5"><dt class="font-bold">Hours that fit your life</dt><dd class="mt-1 max-w-[56ch] text-mute">Support shifts run 3 hours a day part-time or 6 hours a day full-time.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PERKS: heading | table -->
+<section id="perks" class="mx-auto max-w-6xl px-5 py-14 sm:py-20" aria-labelledby="perksTitle">
+  <div class="grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+    <div>
+      <h2 id="perksTitle" class="text-3xl font-extrabold tracking-tight sm:text-4xl">What you get</h2>
+      <p class="mt-4 max-w-[40ch] text-mute">The benefits are concrete, and each role page lists which ones apply.</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[420px] border-y border-line text-left text-sm">
+        <caption class="sr-only">Perks and which roles include them</caption>
+        <thead><tr class="border-b border-line text-mute"><th scope="col" class="py-3 pr-4 font-semibold">Perk</th><th scope="col" class="py-3 pr-4 font-semibold">Details</th><th scope="col" class="py-3 font-semibold">Applies to</th></tr></thead>
+        <tbody class="divide-y divide-line">
+          <tr><th scope="row" class="py-4 pr-4 font-bold">Remote work</th><td class="py-4 pr-4 text-mute">Work from anywhere with a stable connection.</td><td class="py-4">Remote roles</td></tr>
+          <tr><th scope="row" class="py-4 pr-4 font-bold">Flexible shifts</th><td class="py-4 pr-4 text-mute">Choose 3 or 6 hours daily.</td><td class="py-4">Support</td></tr>
+          <tr><th scope="row" class="py-4 pr-4 font-bold">Equity</th><td class="py-4 pr-4 text-mute">Ownership in what you help build.</td><td class="py-4">Select roles</td></tr>
+          <tr><th scope="row" class="py-4 pr-4 font-bold">Pay transparency</th><td class="py-4 pr-4 text-mute">Range or pay basis shown on every listing.</td><td class="py-4">All roles</td></tr>
+          <tr><th scope="row" class="py-4 pr-4 font-bold">Dhaka office</th><td class="py-4 pr-4 text-mute">Desk and team space at Rangs Paramount.</td><td class="py-4">Hybrid, on-site</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer id="office" class="bg-ink text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
+    <div>
+      <img src="shikho.png" alt="Wellfound" class="h-9 w-auto" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-lg font-extrabold',textContent:'Wellfound'}))">
+      <p class="mt-4 max-w-[34ch] text-sm leading-relaxed text-white/70">Empowering the next generation through innovation, opportunity and learning.</p>
+    </div>
+    <div>
+      <h2 class="text-sm font-bold">Office</h2>
+      <address class="mt-3 text-sm not-italic leading-relaxed text-white/70">Rangs Paramount, Level 11, Block-K,<br>Plot-11, Road 17,<br>Dhaka 1213, Bangladesh</address>
+    </div>
+    <div>
+      <h2 class="text-sm font-bold">Contact</h2>
+      <a href="mailto:wellfound.career@gmail.com" class="mt-3 inline-block break-all text-sm font-semibold text-[#FF8A5F] underline underline-offset-4 hover:text-white">wellfound.career@gmail.com</a>
+    </div>
+  </div>
+  <div class="border-t border-white/10 px-5 py-6 text-center text-xs text-white/50">© 2026 Wellfound. All rights reserved.</div>
+</footer>
+
+<!-- APPLICATION DIALOG -->
+<dialog id="applyDialog" aria-labelledby="applyTitle">
+  <div class="flex items-start justify-between gap-4 border-b border-line px-6 py-5">
+    <div>
+      <h2 id="applyTitle" class="text-xl font-extrabold tracking-tight"></h2>
+      <p id="applyMeta" class="mt-1 text-sm text-mute"></p>
+    </div>
+    <button type="button" data-close class="-mr-2 -mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-md hover:bg-mist" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <form id="applyForm" class="space-y-5 px-6 py-6">
+    <input type="hidden" name="role" id="roleField">
+    <div>
+      <label for="name" class="mb-1.5 block text-sm font-semibold">Full name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required class="h-12 w-full rounded-md border border-line px-4 text-base">
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="email" class="mb-1.5 block text-sm font-semibold">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" class="h-12 w-full rounded-md border border-line px-4 text-base">
+      </div>
+      <div>
+        <label for="phone" class="mb-1.5 block text-sm font-semibold">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+880" class="h-12 w-full rounded-md border border-line px-4 text-base">
+      </div>
+    </div>
+    <div id="shiftRow" class="grid gap-5 sm:grid-cols-2">
+      <div>
+        <label for="empType" class="mb-1.5 block text-sm font-semibold">Employment type</label>
+        <select id="empType" name="employment_type" class="h-12 w-full rounded-md border border-line bg-white px-3 text-base">
+          <option>Part time</option><option>Full time</option>
+        </select>
+      </div>
+      <div>
+        <span class="mb-1.5 block text-sm font-semibold">Working hours</span>
+        <output id="hours" class="flex h-12 items-center rounded-md border border-line bg-mist px-4 font-semibold">3 hours daily</output>
+      </div>
+    </div>
+    <div>
+      <label for="cv" class="mb-1.5 block text-sm font-semibold">CV or resume <span class="font-normal text-mute">(PDF or Word, up to 5 MB)</span></label>
+      <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" required class="block w-full text-sm text-mute file:mr-3 file:h-11 file:cursor-pointer file:rounded-md file:border-0 file:bg-ink file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-black">
+    </div>
+    <p id="formError" class="hidden text-sm font-semibold text-red-700" role="alert"></p>
+    <button id="submitBtn" type="submit" class="h-12 w-full rounded-md bg-accent font-semibold text-white hover:bg-accenthi disabled:opacity-60">Submit application</button>
+  </form>
+
+  <div id="applyDone" class="hidden px-6 py-10 text-center">
+    <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-ink text-white">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>
+    </div>
+    <h3 class="mt-5 text-xl font-extrabold">Application submitted</h3>
+    <p id="doneText" class="mx-auto mt-2 max-w-[38ch] text-mute"></p>
+    <button type="button" data-close class="mt-7 h-12 rounded-md border border-line px-6 font-semibold hover:bg-mist">Back to open roles</button>
+  </div>
+</dialog>
+
+<script>
+/* ---------- DATA: edit roles here ----------
+   Real roles: Customer Support Agent, Jr. Executive.
+   Engineering, Product and Growth entries are SAMPLES (closed). Replace or delete before launch. Set open:true to reopen a role. */
+const ROLES = [
+  { id:'support', title:'Customer Support Agent', dept:'Support', loc:'Remote', place:'Anywhere', type:'Part-time or full-time',
+    summary:'Solve user problems with empathy, professionalism and speed.', comp:'Pay shared in first call', equity:false, open:true, shifts:true },
+  { id:'jr-exec', title:'Jr. Executive', dept:'Operations', loc:'Hybrid', place:'Dhaka', type:'Full-time',
+    summary:'This role is closed and no longer accepting applications.', comp:'', equity:false, open:false, shifts:false },
+  { id:'fe', title:'Frontend Engineer', dept:'Engineering', loc:'Remote', place:'Bangladesh', type:'Full-time',
+    summary:'This role is closed and no longer accepting applications.', comp:'৳80k–130k / month', equity:true, open:false, shifts:false },
+  { id:'pd', title:'Product Designer', dept:'Product', loc:'Hybrid', place:'Dhaka', type:'Full-time',
+    summary:'This role is closed and no longer accepting applications.', comp:'৳70k–110k / month', equity:true, open:false, shifts:false },
+  { id:'growth', title:'Growth Marketing Associate', dept:'Growth', loc:'On-site', place:'Dhaka', type:'Full-time',
+    summary:'This role is closed and no longer accepting applications.', comp:'৳40k–60k / month', equity:false, open:false, shifts:false }
+];
+const ENDPOINT = ''; // Set to your form handler URL to POST applications (FormData). Empty = direct redirect.
+
+const $ = s => document.querySelector(s);
+const state = { q:'', dept:'All', loc:'All', equity:false, closed:true };
+const depts = ['All', ...new Set(ROLES.map(r => r.dept))];
+const locs = ['All', 'Remote', 'Hybrid', 'On-site'];
+
+/* ---------- Facets ---------- */
+function facet(el, name, items) {
+  el.innerHTML = items.map(v => `
+    <label class="flex min-h-[44px] cursor-pointer items-center justify-between gap-3 text-sm">
+      <span class="flex items-center gap-3"><input type="radio" name="${name}" value="${v}" class="h-4 w-4 accent-[#C8431D]" ${v==='All'?'checked':''}>${v==='All'?'All':v}</span>
+      <span class="text-mute" data-count="${name}:${v}"></span>
+    </label>`).join('');
+  el.addEventListener('change', e => { state[name] = e.target.value; update(); });
+}
+facet($('#deptFacet'), 'dept', depts);
+facet($('#locFacet'), 'loc', locs);
+
+/* ---------- Filtering + render ---------- */
+function matches(r, skip) {
+  if (!state.closed && !r.open) return false;
+  if (state.equity && !r.equity) return false;
+  if (skip !== 'dept' && state.dept !== 'All' && r.dept !== state.dept) return false;
+  if (skip !== 'loc' && state.loc !== 'All' && r.loc !== state.loc) return false;
+  const q = state.q.trim().toLowerCase();
+  return !q || (r.title + ' ' + r.dept + ' ' + r.summary + ' ' + r.place).toLowerCase().includes(q);
+}
+function rowHTML(r) {
+  const chip = t => `<span class="rounded border border-line px-2 py-0.5 text-xs font-medium text-mute">${t}</span>`;
+  const action = r.open
+    ? `<button type="button" data-apply="${r.id}" class="h-11 w-full rounded-md bg-accent px-5 text-sm font-semibold text-white hover:bg-accenthi sm:w-auto" aria-label="Apply for ${r.title}">Apply</button>`
+    : `<span class="inline-flex h-11 w-full items-center justify-center rounded-md bg-mist px-5 text-sm font-semibold text-mute sm:w-auto">Closed</span>`;
+  return `<li class="grid gap-4 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-8 ${r.open?'':'opacity-70'}">
+    <div>
+      <h3 class="text-lg font-bold leading-snug">${r.title}</h3>
+      <p class="mt-1 max-w-[60ch] text-sm text-mute">${r.summary}</p>
+      <div class="mt-3 flex flex-wrap gap-2">${chip(r.dept)}${chip(r.loc + ', ' + r.place)}${chip(r.type)}</div>
+    </div>
+    <div class="flex items-center justify-between gap-5 sm:flex-col sm:items-end sm:gap-3">
+      <div class="text-sm sm:text-right">${r.comp ? `<p class="font-semibold">${r.comp}</p>` : ''}${r.equity ? '<p class="text-accent font-semibold">+ equity</p>' : ''}</div>
+      ${action}
+    </div>
+  </li>`;
+}
+function update() {
+  const list = ROLES.filter(r => matches(r)).sort((a, b) => b.open - a.open);
+  $('#roleList').innerHTML = list.map(rowHTML).join('');
+  $('#empty').classList.toggle('hidden', list.length > 0);
+  $('#roleList').classList.toggle('hidden', list.length === 0);
+  $('#resultCount').textContent = list.length + (list.length === 1 ? ' role' : ' roles');
+  depts.forEach(v => { const n = ROLES.filter(r => matches(r,'dept') && (v==='All' || r.dept===v)).length; $(`[data-count="dept:${v}"]`).textContent = n; });
+  locs.forEach(v => { const n = ROLES.filter(r => matches(r,'loc') && (v==='All' || r.loc===v)).length; $(`[data-count="loc:${v}"]`).textContent = n; });
+  const active = (state.dept!=='All') + (state.loc!=='All') + state.equity;
+  $('#filterBadge').textContent = active ? `(${active})` : '';
+}
+function resetFilters() {
+  Object.assign(state, { q:'', dept:'All', loc:'All', equity:false, closed:true });
+  $('#q').value = ''; $('#equity').checked = false; $('#closed').checked = true;
+  document.querySelectorAll('#filterPanel input[type=radio][value=All]').forEach(i => i.checked = true);
+  update();
+}
+$('#q').addEventListener('input', e => { state.q = e.target.value; update(); });
+$('#equity').addEventListener('change', e => { state.equity = e.target.checked; update(); });
+$('#closed').addEventListener('change', e => { state.closed = e.target.checked; update(); });
+$('#reset').addEventListener('click', resetFilters);
+$('#emptyReset').addEventListener('click', resetFilters);
+$('#filterBtn').addEventListener('click', e => {
+  const open = $('#filterPanel').classList.toggle('hidden') === false;
+  e.currentTarget.setAttribute('aria-expanded', open);
+});
+
+/* ---------- Hero snapshot (computed from ROLES) ---------- */
+const openRoles = ROLES.filter(r => r.open);
+$('#statOpen').textContent = openRoles.length;
+$('#statRemote').textContent = openRoles.filter(r => r.loc === 'Remote').length;
+$('#statTeams').textContent = new Set(openRoles.map(r => r.dept)).size;
+$('#statClosed').textContent = ROLES.length - openRoles.length;
+
+/* ---------- Mobile drawer ---------- */
+const drawer = $('#drawer'), panel = $('#drawerPanel'), menuBtn = $('#menuBtn');
+function setDrawer(open) {
+  if (open) { drawer.classList.remove('hidden'); requestAnimationFrame(() => panel.classList.remove('translate-x-full')); $('#drawerClose').focus(); }
+  else { panel.classList.add('translate-x-full'); setTimeout(() => drawer.classList.add('hidden'), 200); menuBtn.focus(); }
+  menuBtn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+menuBtn.addEventListener('click', () => setDrawer(true));
+$('#drawerClose').addEventListener('click', () => setDrawer(false));
+$('#drawerOverlay').addEventListener('click', () => setDrawer(false));
+document.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', () => setDrawer(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !drawer.classList.contains('hidden')) setDrawer(false); });
+
+/* ---------- Application dialog ---------- */
+const dlg = $('#applyDialog'), form = $('#applyForm'), err = $('#formError');
+$('#roleList').addEventListener('click', e => {
+  const b = e.target.closest('[data-apply]'); if (!b) return;
+  const r = ROLES.find(x => x.id === b.dataset.apply);
+  form.reset(); form.classList.remove('hidden'); $('#applyDone').classList.add('hidden'); err.classList.add('hidden');
+  $('#hours').textContent = '3 hours daily';
+  $('#applyTitle').textContent = r.title;
+  $('#applyMeta').textContent = `${r.dept}, ${r.loc} (${r.place})`;
+  $('#roleField').value = r.title;
+  $('#shiftRow').classList.toggle('hidden', !r.shifts);
+  $('#empType').disabled = !r.shifts;
+  $('#submitBtn').disabled = false; $('#submitBtn').textContent = 'Submit application';
+  dlg.showModal();
+});
+dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
+$('#empType').addEventListener('change', e => { $('#hours').textContent = e.target.value === 'Part time' ? '3 hours daily' : '6 hours daily'; });
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const file = $('#cv').files[0];
+  if (file && file.size > 5 * 1024 * 1024) { 
+    err.textContent = 'That file is over 5 MB. Upload a smaller PDF or Word file.'; 
+    err.classList.remove('hidden'); 
+    return; 
+  }
+  err.classList.add('hidden');
+  
+  const btn = $('#submitBtn'); 
+  btn.disabled = true; 
+  btn.textContent = 'Submitting...';
+
+  try {
+    if (ENDPOINT) { 
+      const res = await fetch(ENDPOINT, { method: 'POST', body: new FormData(form) }); 
+      if (!res.ok) throw new Error(); 
+    }
+    
+    // Slight delay to display the loading state before redirecting to thankyou.html
+    setTimeout(() => {
+      window.location.href = 'thankyou.html';
+    }, 800);
+    
+  } catch {
+    err.textContent = 'Something went wrong and your application was not sent. Check your connection and submit again.';
+    err.classList.remove('hidden'); 
+    btn.disabled = false; 
+    btn.textContent = 'Submit application';
+  }
+});
+
+update();
+</script>
 </body>
 </html>
