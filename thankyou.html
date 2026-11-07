@@ -4,12 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#e2136e">
+<meta name="theme-color" content="#f21a24">
 
-<!-- Favicon -->
-<link rel="icon" id="favicon" type="image/png" href="assets/bkash-logo.png">
+<link rel="icon" type="image/png" href="assets/Nagad-logo.png">
 
-<title>bKash Payment | Administrative Fee</title>
+<title>Nagad Payment | Administrative Fee</title>
 
 <style>
 
@@ -25,7 +24,7 @@ body {
   background:
     radial-gradient(
       circle at top left,
-      var(--theme-glow, rgba(226, 19, 110, 0.08)),
+      var(--theme-glow),
       transparent 35%
     ),
     linear-gradient(
@@ -38,23 +37,9 @@ body {
   transition: background 0.4s ease;
 }
 
-/* =========================
-   DYNAMIC THEME VARIABLES
-========================= */
+/* THEME VARIABLES */
 
 :root {
-  --primary-color: #e2136e;
-  --secondary-color: #c80f61;
-  --bg-subtle: #fff0f6;
-  --bg-gradient: linear-gradient(135deg, #fff0f6, #fff7fa);
-  --header-gradient: linear-gradient(145deg, #e2136d70, #c80f624d);
-  --theme-glow: rgba(226, 19, 110, 0.08);
-  --btn-gradient: linear-gradient(135deg, #e2136e, #c80f61);
-  --shadow-color: rgba(226, 19, 110, 0.22);
-  --shadow-hover: rgba(226, 19, 110, 0.28);
-}
-
-body.nagad-theme {
   --primary-color: #f21a24;
   --secondary-color: #f37021;
   --bg-subtle: #fff2f2;
@@ -66,9 +51,7 @@ body.nagad-theme {
   --shadow-hover: rgba(242, 26, 36, 0.28);
 }
 
-/* =========================
-   MAIN CARD
-========================= */
+/* MAIN CARD */
 
 .container {
   width: 100%;
@@ -83,9 +66,7 @@ body.nagad-theme {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header {
   position: relative;
@@ -119,9 +100,7 @@ body.nagad-theme {
   left: -40px;
 }
 
-/* =========================
-   LOGO
-========================= */
+/* LOGO */
 
 .logo-wrapper {
   position: relative;
@@ -142,16 +121,11 @@ body.nagad-theme {
   height: auto;
   object-fit: contain;
   background: transparent;
+  filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.6));
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-body.nagad-theme .header img {
-  filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.6));
-}
-
-/* =========================
-   HEADER TEXT
-========================= */
+/* HEADER TEXT */
 
 .header h1 {
   position: relative;
@@ -171,78 +145,13 @@ body.nagad-theme .header img {
   color: #222;
 }
 
-/* =========================
-   CONTENT
-========================= */
+/* CONTENT */
 
 .content {
   padding: 28px;
 }
 
-/* =========================
-   MODERN METHOD SELECTOR
-========================= */
-
-.selector-container {
-  margin-bottom: 22px;
-}
-
-.selector-label {
-  display: block;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.method-selector {
-  display: flex;
-  background: #f1f3f7;
-  padding: 5px;
-  border-radius: 16px;
-  gap: 6px;
-}
-
-.method-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border: none;
-  background: transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: none;
-  margin-top: 0;
-  min-height: 48px;
-}
-
-.method-btn img {
-  height: 24px;
-  width: auto;
-  max-width: 80px;
-  object-fit: contain;
-  transition: filter 0.2s ease, transform 0.2s ease;
-}
-
-.method-btn.active {
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.method-btn:not(.active):hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* =========================
-   DYNAMIC SMOOTH FADE PANELS
-========================= */
+/* FADE SECTION */
 
 .fade-section {
   transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
@@ -255,9 +164,7 @@ body.nagad-theme .header img {
   transform: translateY(6px);
 }
 
-/* =========================
-   AMOUNT
-========================= */
+/* AMOUNT */
 
 .amount-box {
   background: var(--bg-gradient);
@@ -283,9 +190,7 @@ body.nagad-theme .header img {
   transition: color 0.4s ease;
 }
 
-/* =========================
-   PAYMENT NUMBER SECTION
-========================= */
+/* PAYMENT NUMBER */
 
 .payment-number-box {
   background: var(--bg-subtle);
@@ -348,9 +253,7 @@ body.nagad-theme .header img {
   transform: scale(0.97);
 }
 
-/* =========================
-   INSTRUCTIONS
-========================= */
+/* INSTRUCTIONS */
 
 .instructions {
   background: #fafafa;
@@ -403,9 +306,7 @@ body.nagad-theme .header img {
   color: #222;
 }
 
-/* =========================
-   FORM
-========================= */
+/* FORM */
 
 .form-title {
   font-size: 18px;
@@ -451,9 +352,7 @@ input[type="file"] {
   cursor: pointer;
 }
 
-/* =========================
-   SUBMIT BUTTON
-========================= */
+/* SUBMIT BUTTON */
 
 .submit-btn {
   width: 100%;
@@ -480,9 +379,7 @@ input[type="file"] {
   transform: translateY(0);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .footer-note {
   text-align: center;
@@ -492,9 +389,7 @@ input[type="file"] {
   line-height: 1.5;
 }
 
-/* =========================
-   SUCCESS SCREEN
-========================= */
+/* SUCCESS SCREEN */
 
 .success-screen {
   position: fixed;
@@ -515,9 +410,7 @@ input[type="file"] {
   padding: 45px 25px;
 }
 
-/* =========================
-   LOADER
-========================= */
+/* LOADER */
 
 .loader {
   width: 52px;
@@ -541,9 +434,7 @@ input[type="file"] {
   }
 }
 
-/* =========================
-   SUCCESS CHECK
-========================= */
+/* SUCCESS CHECK */
 
 .check-circle {
   width: 105px;
@@ -581,6 +472,7 @@ input[type="file"] {
     transform: scale(0.7);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -602,32 +494,37 @@ input[type="file"] {
   margin: 0 auto;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 520px) {
   body {
     padding: 12px;
   }
+
   .container {
     border-radius: 20px;
   }
+
   .header {
     padding: 28px 18px 25px;
   }
+
   .header img {
     max-width: 135px;
   }
+
   .header h1 {
     font-size: 22px;
   }
+
   .content {
     padding: 21px 18px;
   }
+
   .amount {
     font-size: 27px;
   }
+
   .payment-number {
     font-size: 18px;
   }
@@ -638,93 +535,143 @@ input[type="file"] {
 
 <body>
 
-<!-- =========================
-     MAIN PAYMENT CARD
-========================= -->
+<!-- MAIN PAYMENT CARD -->
 
 <div class="container" id="mainContent">
 
   <!-- HEADER -->
+
   <div class="header">
+
     <div class="logo-wrapper">
-      <img id="headerLogo" src="assets/bkash-logo.png" alt="bKash Logo">
+      <img
+        id="headerLogo"
+        src="assets/Nagad-logo.png"
+        alt="Nagad Logo"
+      >
     </div>
+
     <h1>Administrative Fee</h1>
     <p>Complete your payment securely</p>
+
   </div>
 
   <!-- CONTENT -->
+
   <div class="content">
 
-    <!-- SELECTOR BEFORE AMOUNT -->
-    <div class="selector-container">
-      <span class="selector-label">Select Payment Method</span>
-      <div class="method-selector">
-        <button type="button" class="method-btn active" id="btnBkash" onclick="switchMethod('bkash')">
-          <img src="assets/bkash-logo.png" alt="bKash">
-        </button>
-        <button type="button" class="method-btn" id="btnNagad" onclick="switchMethod('nagad')">
-          <img src="assets/Nagad-logo.png" alt="Nagad">
-        </button>
-      </div>
-    </div>
-
     <!-- AMOUNT BOX -->
+
     <div class="amount-box">
       <span class="amount-label">Amount to Pay</span>
       <div class="amount">৳ 300</div>
     </div>
 
-    <!-- DYNAMIC FADE WRAPPER FOR METHOD-SPECIFIC CONTENT -->
     <div class="fade-section" id="dynamicContent">
 
       <!-- PAYMENT NUMBER -->
+
       <div class="payment-number-box">
-        <span class="payment-number-label" id="numberLabel">bKash Send Money/Cash In Number</span>
+
+        <span class="payment-number-label">
+          Nagad Send Money/Cash In Number
+        </span>
+
         <div class="payment-number-row">
-          <span class="payment-number" id="paymentNumber">01706314028</span>
-          <button type="button" class="copy-btn" id="copyBtn" onclick="copyPaymentNumber()">Copy Number</button>
+
+          <span class="payment-number" id="paymentNumber">
+            01962143315
+          </span>
+
+          <button
+            type="button"
+            class="copy-btn"
+            id="copyBtn"
+            onclick="copyPaymentNumber()"
+          >
+            Copy Number
+          </button>
+
         </div>
+
       </div>
 
       <!-- PAYMENT INSTRUCTIONS -->
+
       <div class="instructions">
+
         <div class="instructions-title">
           <span>i</span> Payment Instructions
         </div>
+
         <ol>
-          <li>Open your <b id="instructAppName">bKash</b> app.</li>
+          <li>Open your <b>Nagad</b> app.</li>
           <li>Select <b>Send Money</b>.</li>
-          <li>Enter the <span id="instructNumberType">bKash</span> number shown above.</li>
+          <li>Enter the <b>Nagad</b> number shown above.</li>
           <li>Enter amount: <b>300 BDT</b>.</li>
           <li>Complete the payment and copy your <b>Transaction ID</b>.</li>
         </ol>
+
       </div>
 
       <!-- PAYMENT FORM -->
+
       <div class="form-title">Payment Verification</div>
 
       <form id="paymentForm">
-        <!-- Phone Number Field -->
+
         <div class="form-group">
-          <label for="userPhoneNumber" id="phoneLabel">Your bKash Number</label>
-          <input type="text" id="userPhoneNumber" placeholder="01XXXXXXXXX" inputmode="numeric" required>
+
+          <label for="userPhoneNumber">
+            Your Nagad Number
+          </label>
+
+          <input
+            type="text"
+            id="userPhoneNumber"
+            placeholder="01XXXXXXXXX"
+            inputmode="numeric"
+            required
+          >
+
         </div>
 
-        <!-- Transaction ID Field -->
         <div class="form-group">
-          <label for="transactionId">Transaction ID <span style="font-weight: 400; color: #777;">(Optional)</span></label>
-          <input type="text" id="transactionId" placeholder="Enter your transaction ID (optional)">
+
+          <label for="transactionId">
+            Transaction ID
+            <span style="font-weight: 400; color: #777;">
+              (Optional)
+            </span>
+          </label>
+
+          <input
+            type="text"
+            id="transactionId"
+            placeholder="Enter your transaction ID (optional)"
+          >
+
         </div>
 
-        <!-- Payment Proof Field -->
         <div class="form-group">
-          <label for="paymentProof">Upload Payment Proof</label>
-          <input type="file" id="paymentProof" accept="image/*" required>
+
+          <label for="paymentProof">
+            Upload Payment Proof
+          </label>
+
+          <input
+            type="file"
+            id="paymentProof"
+            accept="image/*"
+            required
+          >
+
         </div>
 
-        <!-- Submit Button -->
-        <button type="submit" class="submit-btn">Submit Payment</button>
+        <button type="submit" class="submit-btn">
+          Submit Payment
+        </button>
+
       </form>
 
     </div>
@@ -737,166 +684,141 @@ input[type="file"] {
 
 </div>
 
-<!-- =========================
-     SUCCESS SCREEN
-========================= -->
+<!-- SUCCESS SCREEN -->
 
 <div class="success-screen" id="successScreen">
+
   <div class="success-card">
 
     <!-- LOADING -->
+
     <div id="loadingContent">
+
       <div class="loader"></div>
-      <div class="loading-text">Processing your payment information...</div>
+
+      <div class="loading-text">
+        Processing your payment information...
+      </div>
+
     </div>
 
     <!-- SUCCESS -->
+
     <div id="successContent" style="display:none;">
+
       <div class="check-circle">
+
         <svg class="checkmark" viewBox="0 0 52 52">
           <path d="M14 27 L22 35 L38 18"></path>
         </svg>
+
       </div>
-      <div class="success-title">Payment Submitted</div>
+
+      <div class="success-title">
+        Payment Submitted
+      </div>
+
       <div class="success-text">
+
         We are confirming your payment.
+
         <br><br>
+
         Once your submission is verified, our team will review your details and send your confirmed schedule along with access links for the online interview.
+
       </div>
+
     </div>
 
   </div>
+
 </div>
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+<!-- JAVASCRIPT -->
 
 <script>
 
-/* Method Configuration */
-const paymentConfig = {
-  bkash: {
-    number: "01706314028",
-    label: "bKash Send Money/Cash In Number",
-    appName: "bKash",
-    phoneLabel: "Your bKash Number",
-    logoSrc: "assets/bkash-logo.png",
-    pageTitle: "bKash Payment | Administrative Fee"
-  },
-  nagad: {
-    number: "01962143315",
-    label: "Nagad Send Money/Cash In Number",
-    appName: "Nagad",
-    phoneLabel: "Your Nagad Number",
-    logoSrc: "assets/Nagad-logo.png",
-    pageTitle: "Nagad Payment | Administrative Fee"
-  }
-};
+/* Nagad Payment Details */
 
-/* State Variable */
-let currentMethod = 'bkash';
-
-/* DOM Elements */
-const body = document.body;
-const headerLogo = document.getElementById("headerLogo");
-const favicon = document.getElementById("favicon");
-const btnBkash = document.getElementById("btnBkash");
-const btnNagad = document.getElementById("btnNagad");
-const dynamicContent = document.getElementById("dynamicContent");
-
-const numberLabel = document.getElementById("numberLabel");
 const paymentNumber = document.getElementById("paymentNumber");
-const instructAppName = document.getElementById("instructAppName");
-const instructNumberType = document.getElementById("instructNumberType");
-const phoneLabel = document.getElementById("phoneLabel");
 
 const form = document.getElementById("paymentForm");
+
 const successScreen = document.getElementById("successScreen");
+
 const loadingContent = document.getElementById("loadingContent");
+
 const successContent = document.getElementById("successContent");
 
-/* Method Switching Handler */
-function switchMethod(method) {
-  if (currentMethod === method) return;
-  currentMethod = method;
 
-  /* Update Button Active States */
-  if (method === 'bkash') {
-    btnBkash.classList.add('active');
-    btnNagad.classList.remove('active');
-  } else {
-    btnNagad.classList.add('active');
-    btnBkash.classList.remove('active');
-  }
+/* COPY PAYMENT NUMBER */
 
-  /* Fade out content during transition */
-  dynamicContent.classList.add('switching');
-
-  setTimeout(() => {
-    const config = paymentConfig[method];
-
-    if (method === 'nagad') {
-      body.classList.add('nagad-theme');
-    } else {
-      body.classList.remove('nagad-theme');
-    }
-
-    /* Update dynamic text & assets */
-    headerLogo.src = config.logoSrc;
-    headerLogo.alt = config.appName + " Logo";
-    favicon.href = config.logoSrc;
-    document.title = config.pageTitle;
-
-    paymentNumber.textContent = config.number;
-    numberLabel.textContent = config.label;
-    instructAppName.textContent = config.appName;
-    instructNumberType.textContent = config.appName;
-    phoneLabel.textContent = config.phoneLabel;
-
-    /* Fade in content */
-    dynamicContent.classList.remove('switching');
-  }, 150);
-}
-
-/* Copy Functionality */
 function copyPaymentNumber() {
+
   const number = paymentNumber.textContent.trim();
+
   const button = document.getElementById("copyBtn");
 
   navigator.clipboard.writeText(number)
+
     .then(() => showCopied(button))
+
     .catch(() => {
+
       /* Fallback for older browsers */
+
       const tempInput = document.createElement("input");
+
       tempInput.value = number;
+
       document.body.appendChild(tempInput);
+
       tempInput.select();
+
       document.execCommand("copy");
+
       document.body.removeChild(tempInput);
+
       showCopied(button);
+
     });
+
 }
+
 
 function showCopied(button) {
+
   button.textContent = "Copied!";
+
   setTimeout(() => {
+
     button.textContent = "Copy Number";
+
   }, 1500);
+
 }
 
-/* Form Submission Handler */
+
+/* FORM SUBMISSION HANDLER */
+
 form.addEventListener("submit", function(e) {
+
   e.preventDefault();
 
   successScreen.style.display = "flex";
+
   loadingContent.style.display = "block";
+
   successContent.style.display = "none";
 
   setTimeout(() => {
+
     loadingContent.style.display = "none";
+
     successContent.style.display = "block";
+
   }, 2000);
+
 });
 
 </script>
